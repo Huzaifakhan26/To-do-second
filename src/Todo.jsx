@@ -15,29 +15,29 @@ function ToDo() {
     setEditText(event.target.value);
   }
 
+  //ye naya task banayega 
   function addTask() {
     if (newTask.trim() !== "") {
       setTasks(t => [...t, newTask]);
       setNewTask("");
     }
   }
-
+// ye purana task ko deletyte krega 
   function deleteTask(index) {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
   }
 
-  // Function to enable editing a task
   function startEditing(index) {
     setEditingIndex(index);
     setEditText(tasks[index]);
-  }
+  }//ye edit krne k lie 
 
-  // Function to save the edited task
   function saveEdit() {
+    //y esave krega eduts ko ouranet taask wale
     if (editText.trim() !== "") {
       const updatedTasks = [...tasks];
-      updatedTasks[editingIndex] = editText; // Update task at editingIndex
+      updatedTasks[editingIndex] = editText; 
       setTasks(updatedTasks);
       setEditingIndex(null);
       setEditText("");
